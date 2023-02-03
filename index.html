@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Search Field and Button</title>
-  </head>
-  <body><center>
-    <input type="text" id="searchInput" placeholder="Enter search term">
-    <button id="searchButton">Search</button></center>
-  </body>
+<head>
+  <title>Search Example</title>
+</head>
+<body><center>
+  <div>
+    <input type="text" id="search-input" />
+    <button id="search-button">Search</button>
+  </div>
+  <div id="search-results"></div>
+
+  <script>
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const searchResults = document.getElementById("search-results");
+
+    searchButton.addEventListener("click", function() {
+      const searchTerm = searchInput.value;
+      const url = `https://www.google.com/search?q=${searchTerm}`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          searchResults.innerHTML = "";
+          data.items.forEach(item => {
+            const result = document.createElement("div");
+            result.innerHTML = `<a href="${item.link}">${item.title}</a>`;
+            searchResults.appendChild(result);
+          });
+        });
+    });
+  </script></center>
+</body>
 </html>
