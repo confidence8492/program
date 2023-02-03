@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Show Time</title>
+    <title>Search Field and Button</title>
   </head>
-  <body>
-    <div id="time"></div>
-    <script>
-      function showTime() {
-        let time = new Date();
-        document.getElementById("time").innerHTML = time.toLocaleString();
-      }
-      setInterval(showTime, 1000);
-    </script>
+  <body><center>
+    <input type="text" id="searchInput" placeholder="Enter search term">
+    <button id="searchButton">Search</button></center>
   </body>
 </html>
