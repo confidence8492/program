@@ -17,8 +17,12 @@
 
     searchButton.addEventListener("click", function() {
       const searchTerm = searchInput.value;
-      const url = `https://www.google.com/search?q=${searchTerm}`;
-
+      const url = `https://www.bing.com/search?q=${searchTerm}&search=&form=QBLH`;
+      /*fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          searchResults.innerHTML = data;
+        });*/
       fetch(url)
         .then(response => response.json())
         .then(data => {
